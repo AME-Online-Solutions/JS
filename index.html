@@ -1,3 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+<head>
+<meta charset='utf-8' />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.3/fullcalendar.min.css">
+<script src='http://code.jquery.com/jquery-2.1.3.js'></script>
+<script src='https://raw.githubusercontent.com/AME-Online-Solutions/JS/master/moment.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.3/fullcalendar.js'></script>
+<script>
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h1>Hello fullCalendar 2.3.3!</h1>
+    <div id='calendar'></div>
+<script>
+$(document).ready(function(){
+    fullCalObj = $('#calendar').fullCalendar({
+         header: {
+             left: 'prev,next today',
+             center: 'title',
+             right: 'month,agendaWeek,agendaDay'
+         },
+         allDayDefault: false,
+         selectable: true,
+         selectHelper: true,
+         editable: true,
+         eventLimit: true, // allow "more" link when too many events
+     });
+    
+    var newEvent = {
+        title : 'mytitle',
+        start : '2015-04-22',
+        allDay: false,
+        id: 1,
+        description: 'my test event'
+    };
+    
+    fullCalObj.fullCalendar('renderEvent', newEvent, 'stick');
+});
+</script>
+</body>
 </html>
